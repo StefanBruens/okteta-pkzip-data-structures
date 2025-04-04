@@ -1,0 +1,16 @@
+[Desktop Entry]
+Icon=application-zip
+Type=Service
+ServiceTypes=KPluginInfo
+
+Name=PKZip data structures
+Comment=Zip data structures as documented by PKWares APPNOTE.TXT
+
+X-KDE-PluginInfo-Author=Stefan Brüns
+X-KDE-PluginInfo-Email=stefan.bruens@rwth-aachen.de
+X-KDE-PluginInfo-Name=zip64
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Category=structure/js
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=false
+

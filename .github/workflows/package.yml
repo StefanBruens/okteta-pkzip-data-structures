@@ -13,6 +13,8 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls -Rl ${{ github.workspace }}
+      - name: Package files for distribution
+        run: |
           tar caf zip64.tar.gz LICENSE -C zip64 zip64.desktop main.js
       - run: echo "🍏 This job's status is ${{ job.status }}."

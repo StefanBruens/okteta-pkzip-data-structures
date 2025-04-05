@@ -7,15 +7,17 @@ jobs:
       - run: echo "Packaging branch ${{ github.ref }} from ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
       - name: List files in the repository
         run: |
           ls -Rl ${{ github.workspace }}
       - name: Package files for distribution
         run: |
-          tar caf zip64.tar.gz LICENSE -C zip64 zip64.desktop main.js
+          mkdir -p ${{ github.workspace }}/artifact
+          tar caf ${{ github.workspace }}/artifact/zip64.tar.gz LICENSE -C zip64 zip64.desktop main.js
+          tar taf ${{ github.workspace }}/artifact/zip64.tar.gz
       - uses: actions/upload-artifact@v4
         with:
-          name: Installable package
-          path: ${{ github.workspace }}/zip64.tar.gz
+          name: zip64.tar.gz
+          path: ${{ github.workspace }}/artifact/zip64.tar.gz
       - run: echo "Status is ${{ job.status }}."
